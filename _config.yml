@@ -1,0 +1,8 @@
+name: Photo gallery
+markdown: redcarpet
+highlighter: true
+permalink: /:year/:month/:title/
+url: https://iamnii.github.io/GridGallery/
+author:
+    name: Adjetey Sowah
+    twitter: #
