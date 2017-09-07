@@ -3,3 +3,5 @@ _site
 .jekyll-metadata
 Gemfile.lock
 README2.md
+.DS_Store
+.idea/

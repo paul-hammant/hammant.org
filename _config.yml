@@ -1,8 +1,8 @@
-name: Photo gallery
+name: Paul Hammant
 markdown: redcarpet
 highlighter: true
 permalink: /:year/:month/:title/
-url: https://mchagas.github.io/
+url: https://hammant.org/
 author:
-    name: Adjetey Sowah
-    twitter: #
+    name: Paul Hammant
+    twitter: paul_hammant
