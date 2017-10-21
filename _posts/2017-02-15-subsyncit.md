@@ -9,4 +9,4 @@ Subversion's really good at holding lots of terabytes of history, and crazily la
 great versioned backing store for the well understood "file sync" application. Companies might be attracted to this if
 they like to fully control their own documents, or have custom workflows.
 
-Website: [subsyncit.com](http://subsyncit.com/).  GitHub: [github.com/subsyncit/subsyncit](https://github.com/subsyncit/subsyncit)
+Website: [subsyncit.com](http://subsyncit.com/).  GitHub: [subsyncit/subsyncit](https://github.com/subsyncit/subsyncit)
