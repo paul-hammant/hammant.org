@@ -1,7 +1,7 @@
 ---
 layout: default
 photo: br.png
-caption_header: BuildRadiator.org creator
+caption_header: BuildRadiator.org Creator
 caption: Free service for dev teams
 ---
 

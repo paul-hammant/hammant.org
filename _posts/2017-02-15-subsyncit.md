@@ -1,7 +1,7 @@
 ---
 layout: default
 photo: subsyncit.png
-caption_header: Subsyncit creator
+caption_header: Subsyncit Creator
 caption: File sync technology that uses Subversion as a backing store
 ---
 
