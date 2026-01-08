@@ -9,22 +9,11 @@
  * http://www.codrops.com
  */
 ;( function( window ) {
-	
+
 	'use strict';
 
 	var docElem = window.document.documentElement,
-		transEndEventNames = {
-			'WebkitTransition': 'webkitTransitionEnd',
-			'MozTransition': 'transitionend',
-			'OTransition': 'oTransitionEnd',
-			'msTransition': 'MSTransitionEnd',
-			'transition': 'transitionend'
-		},
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		support = {
-			transitions : Modernizr.csstransitions,
-			support3d : Modernizr.csstransforms3d
-		};
+		transEndEventName = 'transitionend';
 
 	function setTransform( el, transformStr ) {
 		el.style.WebkitTransform = transformStr;
@@ -66,7 +55,7 @@
 		// main grid
 		this.grid = this.el.querySelector( 'section.grid-wrap > ul.grid' );
 		// main grid items
-		this.gridItems = [].slice.call( this.grid.querySelectorAll( 'li:not(.grid-sizer)' ) );
+		this.gridItems = [].slice.call( this.grid.querySelectorAll( 'li' ) );
 		// items total
 		this.itemsCount = this.gridItems.length;
 		// slideshow grid
@@ -79,20 +68,8 @@
 		this.ctrlPrev = this.el.querySelector( 'section.slideshow > nav > span.nav-prev' );
 		this.ctrlNext = this.el.querySelector( 'section.slideshow > nav > span.nav-next' );
 		this.ctrlClose = this.el.querySelector( 'section.slideshow > nav > span.nav-close' );
-		// init masonry grid
-		this._initMasonry();
 		// init events
 		this._initEvents();
-	};
-
-	CBPGridGallery.prototype._initMasonry = function() {
-		var grid = this.grid;
-		imagesLoaded( grid, function() {
-			new Masonry( grid, {
-				itemSelector: 'li',
-				columnWidth: grid.querySelector( '.grid-sizer' )
-			});
-		});
 	};
 
 	CBPGridGallery.prototype._initEvents = function() {
@@ -147,7 +124,7 @@
 		this.isSlideshowVisible = true;
 		this.current = pos;
 
-		classie.addClass( this.el, 'slideshow-open' );
+		this.el.classList.add( 'slideshow-open' );
 
 		/* position slideshow items */
 
@@ -155,20 +132,20 @@
 		this._setViewportItems();
 		
 		// add class "current" and "show" to currentItem
-		classie.addClass( this.currentItem, 'current' );
-		classie.addClass( this.currentItem, 'show' );
+		this.currentItem.classList.add( 'current' );
+		this.currentItem.classList.add( 'show' );
 
 		// add class show to next and previous items
 		// position previous item on the left side and the next item on the right side
 		if( this.prevItem ) {
-			classie.addClass( this.prevItem, 'show' );
+			this.prevItem.classList.add( 'show' );
 			var translateVal = Number( -1 * ( getViewportW() / 2 + this.prevItem.offsetWidth / 2 ) );
-			setTransform( this.prevItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+			setTransform( this.prevItem, 'translate3d(' + translateVal + 'px, 0, -150px)' );
 		}
 		if( this.nextItem ) {
-			classie.addClass( this.nextItem, 'show' );
+			this.nextItem.classList.add( 'show' );
 			var translateVal = Number( getViewportW() / 2 + this.nextItem.offsetWidth / 2 );
-			setTransform( this.nextItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+			setTransform( this.nextItem, 'translate3d(' + translateVal + 'px, 0, -150px)' );
 		}
 	};
 
@@ -187,39 +164,39 @@
 		var self = this,
 			itemWidth = this.currentItem.offsetWidth,
 			// positions for the centered/current item, both the side items and the incoming ones
-			transformLeftStr = support.support3d ? 'translate3d(-' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px, 0, -150px)' : 'translate(-' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px)',
-			transformRightStr = support.support3d ? 'translate3d(' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px, 0, -150px)' : 'translate(' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px)',
+			transformLeftStr = 'translate3d(-' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px, 0, -150px)',
+			transformRightStr = 'translate3d(' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px, 0, -150px)',
 			transformCenterStr = '', transformOutStr, transformIncomingStr,
 			// incoming item
 			incomingItem;
 
 		if( dir === 'next' ) {
-			transformOutStr = support.support3d ? 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(-' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
-			transformIncomingStr = support.support3d ? 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
+			transformOutStr = 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )';
+			transformIncomingStr = 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )';
 		}
 		else {
-			transformOutStr = support.support3d ? 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
-			transformIncomingStr = support.support3d ? 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(-' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
+			transformOutStr = 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )';
+			transformIncomingStr = 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )';
 		}
 
 		// remove class animatable from the slideshow grid (if it has already)
-		classie.removeClass( self.slideshow, 'animatable' );
+		self.slideshow.classList.remove( 'animatable' );
 
 		if( dir === 'next' && this.current < this.itemsCount - 2 || dir === 'prev' && this.current > 1 ) {
 			// we have an incoming item!
 			incomingItem = this.slideshowItems[ dir === 'next' ? this.current + 2 : this.current - 2 ];
 			setTransform( incomingItem, transformIncomingStr );
-			classie.addClass( incomingItem, 'show' );
+			incomingItem.classList.add( 'show' );
 		}
 
 		var slide = function() {
 			// add class animatable to the slideshow grid
-			classie.addClass( self.slideshow, 'animatable' );
+			self.slideshow.classList.add( 'animatable' );
 
 			// overlays:
-			classie.removeClass( self.currentItem, 'current' );
+			self.currentItem.classList.remove( 'current' );
 			var nextCurrent = dir === 'next' ? self.nextItem : self.prevItem;
-			classie.addClass( nextCurrent, 'current' );
+			nextCurrent.classList.add( 'current' );
 
 			setTransform( self.currentItem, dir === 'next' ? transformLeftStr : transformRightStr );
 
@@ -236,16 +213,14 @@
 			}
 
 			var onEndTransitionFn = function( ev ) {
-				if( support.transitions ) {
-					if( ev.propertyName.indexOf( 'transform' ) === -1 ) return false;
-					this.removeEventListener( transEndEventName, onEndTransitionFn );
-				}
+				if( ev.propertyName.indexOf( 'transform' ) === -1 ) return false;
+				this.removeEventListener( transEndEventName, onEndTransitionFn );
 
 				if( self.prevItem && dir === 'next' ) {
-					classie.removeClass( self.prevItem, 'show' );
+					self.prevItem.classList.remove( 'show' );
 				}
 				else if( self.nextItem && dir === 'prev' ) {
-					classie.removeClass( self.nextItem, 'show' );
+					self.nextItem.classList.remove( 'show' );
 				}
 
 				if( dir === 'next' ) {
@@ -267,12 +242,7 @@
 				self.isAnimating = false;
 			};
 
-			if( support.transitions ) {
-				self.currentItem.addEventListener( transEndEventName, onEndTransitionFn );
-			}
-			else {
-				onEndTransitionFn();
-			}
+			self.currentItem.addEventListener( transEndEventName, onEndTransitionFn );
 		};
 
 		setTimeout( slide, 25 );
@@ -280,25 +250,23 @@
 
 	CBPGridGallery.prototype._closeSlideshow = function( pos ) {
 		// remove class slideshow-open from the grid gallery elem
-		classie.removeClass( this.el, 'slideshow-open' );
+		this.el.classList.remove( 'slideshow-open' );
 		// remove class animatable from the slideshow grid
-		classie.removeClass( this.slideshow, 'animatable' );
+		this.slideshow.classList.remove( 'animatable' );
 
 		var self = this,
 			onEndTransitionFn = function( ev ) {
-				if( support.transitions ) {
-					if( ev.target.tagName.toLowerCase() !== 'ul' ) return;
-					this.removeEventListener( transEndEventName, onEndTransitionFn );
-				}
+				if( ev.target.tagName.toLowerCase() !== 'ul' ) return;
+				this.removeEventListener( transEndEventName, onEndTransitionFn );
 				// remove classes show and current from the slideshow items
-				classie.removeClass( self.currentItem, 'current' );
-				classie.removeClass( self.currentItem, 'show' );
-				
+				self.currentItem.classList.remove( 'current' );
+				self.currentItem.classList.remove( 'show' );
+
 				if( self.prevItem ) {
-					classie.removeClass( self.prevItem, 'show' );
+					self.prevItem.classList.remove( 'show' );
 				}
 				if( self.nextItem ) {
-					classie.removeClass( self.nextItem, 'show' );
+					self.nextItem.classList.remove( 'show' );
 				}
 
 				// also reset any transforms for all the items
@@ -307,12 +275,7 @@
 				self.isSlideshowVisible = false;
 			};
 
-		if( support.transitions ) {
-			this.el.addEventListener( transEndEventName, onEndTransitionFn );
-		}
-		else {
-			onEndTransitionFn();
-		}
+		this.el.addEventListener( transEndEventName, onEndTransitionFn );
 	};
 
 	CBPGridGallery.prototype._setViewportItems = function() {
@@ -349,11 +312,11 @@
 			// update width value
 			if( this.prevItem ) {
 				var translateVal = Number( -1 * ( getViewportW() / 2 + this.prevItem.offsetWidth / 2 ) );
-				setTransform( this.prevItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+				setTransform( this.prevItem, 'translate3d(' + translateVal + 'px, 0, -150px)' );
 			}
 			if( this.nextItem ) {
 				var translateVal = Number( getViewportW() / 2 + this.nextItem.offsetWidth / 2 );
-				setTransform( this.nextItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+				setTransform( this.nextItem, 'translate3d(' + translateVal + 'px, 0, -150px)' );
 			}
 		}
 	}
