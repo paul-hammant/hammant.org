@@ -1,3 +1,7 @@
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/* Icon font for slideshow navigation */
 @font-face {
 	font-family: 'fontawesome';
 	src:url('../fonts/fontawesome/fontawesome.eot?-e43dk9');
@@ -7,9 +11,39 @@
 		url('../fonts/fontawesome/fontawesome.svg?-e43dk9#fontawesome') format('svg');
 	font-weight: normal;
 	font-style: normal;
-} /* Made with http://icomoon.io/app */
+}
 
-/* General style */
+/* Reset & Base */
+*, *:after, *:before { box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0; }
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color: #47a3da;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover {
+	color: #000;
+}
+
+/* Clearfix */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+/* Header */
+.container > header {
+	width: 90%;
+	max-width: 69em;
+	margin: 0 auto;
+	padding: 0.875em 1.875em 0.175em;
+}
+
+/* Grid Gallery */
 .grid-gallery ul {
 	list-style: none;
 	margin: 0;
@@ -34,7 +68,7 @@
 	margin: 0.33em 0;
 }
 
-/* Grid style */
+/* Grid Layout */
 .grid-wrap {
 	max-width: 69em;
 	margin: 0 auto;
@@ -53,7 +87,6 @@
 
 .grid figure {
 	padding: 15px;
-	-webkit-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
 
@@ -70,7 +103,7 @@
 	padding: 25px;
 }
 
-/* Slideshow style */
+/* Slideshow */
 .slideshow {
 	position: fixed;
 	background: rgba(0,0,0,0.6);
@@ -82,37 +115,29 @@
 	opacity: 0;
 	visibility: hidden;
 	overflow: hidden;
-	-webkit-perspective: 1000px;
 	perspective: 1000px;
-	-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
 	transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
 .slideshow-open .slideshow {
 	opacity: 1;
 	visibility: visible;
-	-webkit-transition: opacity 0.5s;
 	transition: opacity 0.5s;
 }
 
 .slideshow ul {
 	width: 100%;
 	height: 100%;
-	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-	-webkit-transform: translate3d(0,0,150px);
 	transform: translate3d(0,0,150px);
-	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
 }
 
 .slideshow ul.animatable li {
-	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
 }
 
 .slideshow-open .slideshow ul {
-	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
 
@@ -138,14 +163,12 @@
 	top: 0;
 	left: 0;
 	background: rgba(255,255,255,0.8);
-	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 }
 
 .slideshow li.current:after {
 	visibility: hidden;
 	opacity: 0;
-	-webkit-transition: opacity 0.3s, visibility 0s 0.3s;
 	transition: opacity 0.3s, visibility 0s 0.3s;
 }
 
@@ -166,7 +189,7 @@
 	font-size: 200%;
 }
 
-/* Navigation */
+/* Slideshow Navigation */
 .slideshow nav span {
 	position: fixed;
 	z-index: 1000;
@@ -180,7 +203,6 @@
 .slideshow nav span.nav-prev,
 .slideshow nav span.nav-next {
 	top: 50%;
-	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
 
@@ -212,7 +234,7 @@ span.nav-prev:before {
 	content: "\e601";
 }
 
-span.nav-next:before  {
+span.nav-next:before {
 	content: "\e600";
 }
 
@@ -220,7 +242,7 @@ span.nav-close:before {
 	content: "\e602";
 }
 
-/* Info on arrow key navigation */
+/* Keyboard Navigation Info */
 .info-keys {
 	position: fixed;
 	top: 10px;
@@ -256,9 +278,12 @@ span.nav-close:before {
 	content: "\e604";
 }
 
-/* Example media queries (reduce number of columns and change slideshow layout) */
-
+/* Responsive */
 @media screen and (max-width: 60em) {
+	.grid {
+		column-count: 3;
+	}
+
 	.slideshow li {
 		width: 100%;
 		height: 100%;
@@ -282,6 +307,20 @@ span.nav-close:before {
 	.info-keys {
 		display: none;
 	}
-
 }
 
+@media screen and (max-width: 40em) {
+	.container > header {
+		text-align: center;
+	}
+
+	.grid {
+		column-count: 2;
+	}
+}
+
+@media screen and (max-width: 25em) {
+	.grid {
+		column-count: 1;
+	}
+}
