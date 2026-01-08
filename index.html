@@ -1,43 +1,271 @@
----
-layout: default
----
-<div class="container">
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Hammant</title>
+    <meta name="description" content="Paul Hammant - Software development expert, creator of PicoContainer, Selenium co-creator, Branch by Abstraction inventor" />
+    <meta name="keywords" content="Paul Hammant, software development, trunk-based development, DevOps, Selenium, PicoContainer" />
+    <meta name="author" content="Paul Hammant" />
+
+    <link rel="stylesheet" type="text/css" href="./css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="./css/component.css" />
+    <script src="./js/modernizr.custom.js"></script>
+  </head>
+  <body>
+
+  <div class="container">
 	<header class="clearfix">
 		<div style="font-size: 2.125em; line-height: 1.3; margin: 0 0 0.1em 0; float: left; font-weight: 400;">Paul Hammant <span style="font-size: 33%;">Email: <a href="mailto:paul@hammant.org">paul@hammant.org</a></span></div>
-		
+
 	</header>
 	<div id="grid-gallery" class="grid-gallery">
 
 	<section class="grid-wrap">
 	<ul class="grid">
 		<li class="grid-sizer"></li><!-- for Masonry column width -->
-		{% for post in site.posts %}
+
 		<li>
 			<figure>
-				<img src="{{ site.url }}/img/thumb/{{ post.photo }}" alt="img"/>
+				<img src="./img/thumb/jobs.jpg" alt="img"/>
 				<figcaption>
-					<h3>{{ post.caption_header}}</h3>
-					<p>{{ post.caption }}</p>
+					<h3>My Employment History</h3>
+					<p>Where I have worked (spans 34 years)</p>
 				</figcaption>
 			</figure>
 		</li>
-		{% endfor %}
+
+		<li>
+			<figure>
+				<img src="./img/thumb/Servirtium-Square.png" alt="img"/>
+				<figcaption>
+					<h3>Servirtium</h3>
+					<p>Service Virtualization technology</p>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/thumb/phdo.jpg" alt="img"/>
+				<figcaption>
+					<h3>My Consulting Services</h3>
+					<p>Paul Hammant DevOps helps you get to Trunk-Based Development</p>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/thumb/se.jpg" alt="img"/>
+				<figcaption>
+					<h3>Selenium Co-Creator</h3>
+					<p>Selenium 1's multi-language side is my contribution</p>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/thumb/blog.jpg" alt="img"/>
+				<figcaption>
+					<h3>My Blogging</h3>
+					<p>Blog entries on software dev topics</p>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/thumb/bba.jpg" alt="img"/>
+				<figcaption>
+					<h3>'Branch by Abstraction' Inventor</h3>
+					<p>My contribution to the field of computer science</p>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/thumb/tbd.jpg" alt="img"/>
+				<figcaption>
+					<h3>Trunk-Based Development Super Expert</h3>
+					<p>I'm the flag carrier & book writer for this multi-decade practice</p>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/thumb/twitter.jpg" alt="img"/>
+				<figcaption>
+					<h3>Me On Twitter</h3>
+					<p>Software related tweets (2,600 followers)</p>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/thumb/pico.jpg" alt="img"/>
+				<figcaption>
+					<h3>PicoContainer Co-Creator</h3>
+					<p>The first 'constructor injection' DI container</p>
+				</figcaption>
+			</figure>
+		</li>
+
 	</ul>
 	</section><!-- // grid-wrap -->
 
 	<section class="slideshow">
 	<ul>
-		{% for post in site.posts %}
+
 		<li>
 			<figure>
-				<img src="{{ site.url }}/img/large/{{ post.photo }}" alt="img"/>
+				<img src="./img/large/jobs.jpg" alt="img"/>
 				<figcaption>
-					<h3>{{ post.caption_header}}</h3>
-					<div style="margin-top: 10px; font-size: 88%;">{{ post.content }}</div>
+					<h3>My Employment History</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>Mostly as a consultant, but always as a leader, I have worked
+at many blue chip employers and clients over the years in a variety
+software related roles. Sometimes direct, and sometimes as a consultant though ThoughtWorks (I was there 12.5 years).</p>
+
+<p>Roles have either been:</p>
+
+<p><strong>Delivery</strong>: coding and shipping of solutions (architect, developer, test engineer)</p>
+
+<p><strong>Executive</strong>: chief of, head of, some group/division/function</p>
+
+<p><strong>Advisory</strong>: permanent or contract lean/agile/devops expert</p>
+
+<p><a target="_blank" href="https://www.linkedin.com/in/paulhammant/">LinkedIn has a full breakdown</a>.</p>
+</div>
 				</figcaption>
 			</figure>
 		</li>
-		{% endfor %}
+
+		<li>
+			<figure>
+				<img src="./img/large/Servirtium-Square.png" alt="img"/>
+				<figcaption>
+					<h3>Servirtium</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>An attempt to make a multi-language technology for service virtualization to use in test automation. Also known as wire mocking.</p>
+
+<p>In order of completeness, implementations in JavaScript &amp; TypeScript, .NET, Go, Java, Kotlin, Python, Ruby, Dart (and Flutter), Rust, and Elixir</p>
+
+<p>See <a target="_blank" href="https://servirtium.dev/">Servirtium.dev</a> website.</p>
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/large/phdo.jpg" alt="img"/>
+				<figcaption>
+					<h3>My Consulting Services</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>I remotely visit companies who want to do software development more effectively, assess them, make a
+plan with them and help them execute it. In particular this is helping them methodically get to Trunk-Based Development</p>
+
+<p>My ongoing consulting is detailed here: <a target="_blank" href="https://devops.paulhammant.com">devops.paulhammant.com.</a></p>
+
+<p>I'm in the UK, so that's a UK Ltd company. Up to 2018, I was in the USA and I did the same through a US Llc.</p>
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/large/se.jpg" alt="img"/>
+				<figcaption>
+					<h3>Selenium Co-Creator</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>Back in 2004 while at ThoughtWorks I made the original Selenium 1 with Jason Huggins and open sourced it.
+It is now a defacto standard (at version 3), and a multi-million dollar industry. Selenium has
+<a target="_blank" href="http://www.seleniumhq.org">its own portal</a>.</p>
+
+<p>In 2014 I wrote ThoughtWorks'    "10-year old birthday congratulations for Selenium" [<a target="_blank" href="https://www.thoughtworks.com/insights/blog/happy-10th-birthday-selenium">link</a>].</p>
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/large/blog.jpg" alt="img"/>
+				<figcaption>
+					<h3>My Blogging</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>I've blogged continually from 2002 onwards. Always on matters related to software development. I alternate
+between build-time and run-time concerns. Most often, my style is pundit. I have quite often been early
+into technologies that would go on to move the industry, and in a few cases been one of the innovators.</p>
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/large/bba.jpg" alt="img"/>
+				<figcaption>
+					<h3>'Branch by Abstraction' Inventor</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>Branch by Abstraction instead of Branch by Source Control!</p>
+
+<p><a target="_blank" href="https://branchbyabstraction.com/">See the resource site I put together on it </a>. Well, perhaps I did not invent it as such,
+but I was the first to document it in 2007.</p>
+
+<p>Industry luminary Martin Fowler <a target="_blank" href="https://martinfowler.com/bliki/BranchByAbstraction.html">wrote an article too</a> and links back to mine.
+As does Jez Humble with <a target="_blank" href="https://continuousdelivery.com/2011/05/make-large-scale-changes-incrementally-with-branch-by-abstraction/">"Make Large Scale Changes Incrementally with Branch By Abstraction"</a>.</p>
+
+<p>The pic above is from a <a target="_blank" href="https://trunkbaseddevelopment.com/branch-by-abstraction">page I wrote for the TrunkBasedDevelopment.com website</a>.</p>
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/large/tbd.jpg" alt="img"/>
+				<figcaption>
+					<h3>Trunk-Based Development Super Expert</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>Google do it, and most software development organizations should too.
+Learn more on the <a target="_blank" href="https://trunkbaseddevelopment.com">Trunk-Based Development</a> portal that I put together.
+Also see my book on this topic <a target="_blank" href="https://tbd-book.com/">tbd-book.com</a></p>
+
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/large/twitter.jpg" alt="img"/>
+				<figcaption>
+					<h3>Me On Twitter</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>I tweet mostly on software technology topics - build, test, agile, lean, architecture <a target="_blank" href="https://twitter.com/paul_hammant">Link</a>.</p>
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
+		<li>
+			<figure>
+				<img src="./img/large/pico.jpg" alt="img"/>
+				<figcaption>
+					<h3>PicoContainer Co-Creator</h3>
+					<div style="margin-top: 10px; font-size: 88%;"><p>I have been active in Apache's Avalon Framework project from 2000, but in 2003 pivoted
+with Aslak Hellesøy (more famous for Cucumber these days) towards another take on "Inversion of Control" to use constructors for
+dependencies, and made PicoContainer (<a target="_blank" href="http://picocontainer.com/">website</a>)
+for the Java community to use. It is still used today in the industry leading IDEs that JetBrains make.</p>
+
+<p>I am guilty of <a target="_blank" href="http://www2.sys-con.com/itsg/virtualcd/java/archives/0812/hammant/index.html">defining some numerical sub-types for IoC</a>,
+before ThoughtWorks' chief scientist, Martin Fowler,
+wrote his widely-read article renaming what I was talking about to Dependency Injection (DI)</p>
+</div>
+				</figcaption>
+			</figure>
+		</li>
+
 	</ul>
 	<nav>
 		<span class="icon nav-prev"></span>
@@ -48,5 +276,16 @@ layout: default
 	</section><!-- // slideshow -->
 
 	</div><!-- // grid-gallery -->
-	<span style="width: 70%; margin: 0 30%; font-size: 70%">&copy; Paul Hammant. Made with Jekyll, and  grid theme from <a href="https://github.com/mchagas/mchagas.github.io">mchagas</a> and hosted on <a href="https://netlify.com">Netlify</a></span>
+	<span style="width: 70%; margin: 0 30%; font-size: 70%">&copy; Paul Hammant. Grid theme from <a href="https://github.com/mchagas/mchagas.github.io">mchagas</a>, hosted on <a href="https://netlify.com">Netlify</a></span>
 </div>
+
+
+    <script src="./js/imagesloaded.pkgd.min.js"></script>
+    <script src="./js/masonry.pkgd.min.js"></script>
+    <script src="./js/classie.js"></script>
+    <script src="./js/cbpGridGallery.js"></script>
+    <script>
+      new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+    </script>
+  </body>
+</html>

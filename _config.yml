@@ -1,8 +1,0 @@
-name: Paul Hammant
-markdown: redcarpet
-highlighter: true
-permalink: /:year/:month/:title/
-url: https://hammant.org/
-author:
-    name: Paul Hammant
-    twitter: paul_hammant
